@@ -3,24 +3,31 @@ export default function Home() {
     {
       slug: "ava",
       name: "Ava M. — G1P0, anxious about needles",
-      blurb: "First baby; fearful of paralysis; wants partner involved."
+      blurb: "First baby; fearful of paralysis; wants partner involved.",
+      img: "/patients/ava.jpg"
     },
     {
       slug: "brianna",
       name: "Brianna T. — BMI 44 with OSA",
-      blurb: "Worried about breathing and monitoring; prior difficult airway."
+      blurb: "Worried about breathing and monitoring; prior difficult airway.",
+      img: "/patients/brianna.jpg"
     },
     {
       slug: "carmen",
       name: "Carmen R. — history of thrombocytopenia",
-      blurb: "Platelets borderline; wants to avoid general anesthesia."
+      blurb: "Platelets borderline; wants to avoid general anesthesia.",
+      img: "/patients/carmen.jpg"
     },
     {
       slug: "diana",
       name: "Diana L. — prior epidural failure",
-      blurb: "Had patchy block in prior labor; skeptical about trying again."
+      blurb: "Had patchy block in prior labor; skeptical about trying again.",
+      img: "/patients/diana.jpg"
     }
   ];
+
+  const placeholder = (label: string) =>
+    `https://placehold.co/480x320?text=${encodeURIComponent(label)}`;
 
   return (
     <main
@@ -36,7 +43,15 @@ export default function Home() {
         Pick a patient to practice an epidural consent conversation.
       </p>
 
-      <ul style={{ listStyle: "none", padding: 0, display: "grid", gap: 12 }}>
+      <ul
+        style={{
+          listStyle: "none",
+          padding: 0,
+          display: "grid",
+          gap: 12,
+          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))"
+        }}
+      >
         {patients.map((p) => (
           <li
             key={p.slug}
@@ -46,6 +61,29 @@ export default function Home() {
               padding: 16
             }}
           >
+            <div
+              style={{
+                width: "100%",
+                aspectRatio: "3 / 2",
+                overflow: "hidden",
+                borderRadius: 10,
+                marginBottom: 10,
+                background: "#f6f6f6",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center"
+              }}
+            >
+              <img
+                src={p.img}
+                alt={p.name}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = placeholder(p.name.split("—")[0].trim());
+                }}
+              />
+            </div>
+
             <div style={{ fontWeight: 600 }}>{p.name}</div>
             <div style={{ color: "#555", fontSize: 14, margin: "6px 0 12px" }}>
               {p.blurb}
