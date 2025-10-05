@@ -4,25 +4,25 @@ export default function Home() {
       slug: "ava",
       name: "Ava M. — G1P0, anxious about needles",
       blurb: "First baby; fearful of paralysis; wants partner involved.",
-      img: "/patients/ava.jpg"
+      img: "/public/patients/ava.jpg"
     },
     {
       slug: "brianna",
       name: "Brianna T. — BMI 44 with OSA",
       blurb: "Worried about breathing and monitoring; prior difficult airway.",
-      img: "/patients/brianna.jpg"
+      img: "/public/patients/brianna.jpg"
     },
     {
       slug: "carmen",
       name: "Carmen R. — history of thrombocytopenia",
       blurb: "Platelets borderline; wants to avoid general anesthesia.",
-      img: "/patients/carmen.jpg"
+      img: "/public/patients/carmen.jpg"
     },
     {
       slug: "diana",
       name: "Diana L. — prior epidural failure",
       blurb: "Had patchy block in prior labor; skeptical about trying again.",
-      img: "/patients/diana.jpg"
+      img: "/public/patients/diana.jpg"
     }
   ];
 
